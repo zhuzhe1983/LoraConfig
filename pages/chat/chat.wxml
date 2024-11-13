@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="receiver-selector">
+    <picker bindchange="onReceiverChange" value="{{index}}" range="{{receivers}}">
+      <view class="picker">
+        发送给: {{receiver}}
+      </view>
+    </picker>
+  </view>
+
+  <scroll-view class="message-list" scroll-y>
+    <view wx:for="{{messages}}" wx:key="index" class="message-item">
+      <view class="message-header">
+        <text class="message-receiver">发送给: {{item.receiver}}</text>
+        <text class="message-time">{{item.timestamp}}</text>
+      </view>
+      <view class="message-content">{{item.content}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="input-panel">
+    <input class="message-input" 
+           value="{{inputContent}}"
+           bindinput="onInputChange"
+           placeholder="输入消息内容"/>
+    <button class="send-button" bindtap="sendMessage">发送</button>
+  </view>
+</view>

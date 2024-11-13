@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="header">
+    <text class="title">LoRa Mesh Chat</text>
+  </view>
+
+  <view class="status-panel" wx:if="{{isConnected}}">
+    <view class="status-item">
+      <text>节点ID: {{deviceStatus.nodeId}}</text>
+    </view>
+    <view class="status-item">
+      <text>信号强度: {{deviceStatus.rssi}} dBm</text>
+    </view>
+    <view class="status-item">
+      <text>电池电量: {{deviceStatus.battery}}V</text>
+    </view>
+  </view>
+
+  <view class="action-panel">
+    <button wx:if="{{!isConnected}}" 
+            class="action-button"
+            loading="{{scanning}}"
+            bindtap="startScan">连接设备</button>
+    
+    <block wx:else>
+      <button class="action-button" bindtap="navigateToChat">聊天</button>
+      <button class="action-button" bindtap="navigateToConfig">配置</button>
+      <button class="action-button" bindtap="navigateToMap">地图</button>
+      <button class="action-button disconnect" bindtap="disconnect">断开连接</button>
+    </block>
+  </view>
+</view>

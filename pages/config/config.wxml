@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="config-section">
+    <text class="section-title">LoRa 配置</text>
+    
+    <view class="input-group">
+      <text class="label">频率 (Hz)</text>
+      <input class="input" type="number"
+             value="{{config.frequency}}"
+             data-field="frequency"
+             bindinput="onInputChange"/>
+    </view>
+
+    <view class="input-group">
+      <text class="label">发射功率</text>
+      <input class="input" type="number"
+             value="{{config.txPower}}"
+             data-field="txPower"
+             bindinput="onInputChange"/>
+    </view>
+
+    <view class="input-group">
+      <text class="label">扩频因子</text>
+      <input class="input" type="number"
+             value="{{config.spreadingFactor}}"
+             data-field="spreadingFactor"
+             bindinput="onInputChange"/>
+    </view>
+
+    <view class="input-group">
+      <text class="label">信号带宽</text>
+      <input class="input" type="number"
+             value="{{config.signalBandwidth}}"
+             data-field="signalBandwidth"
+             bindinput="onInputChange"/>
+    </view>
+
+    <view class="input-group">
+      <text class="label">编码率</text>
+      <input class="input" type="number"
+             value="{{config.codingRate}}"
+             data-field="codingRate"
+             bindinput="onInputChange"/>
+    </view>
+  </view>
+
+  <view class="config-section">
+    <text class="section-title">WiFi 配置</text>
+    
+    <view class="input-group">
+      <text class="label">SSID</text>
+      <input class="input"
+             value="{{config.wifi.ssid}}"
+             data-field="wifi.ssid"
+             bindinput="onInputChange"/>
+    </view>
+
+    <view class="input-group">
+      <text class="label">密码</text>
+      <input class="input" password
+             value="{{config.wifi.password}}"
+             data-field="wifi.password"
+             bindinput="onInputChange"/>
+    </view>
+  </view>
+
+  <view class="config-section">
+    <text class="section-title">节点配置</text>
+    
+    <view class="input-group">
+      <text class="label">节点ID</text>
+      <input class="input"
+             value="{{config.nodeId}}"
+             data-field="nodeId"
+             bindinput="onInputChange"/>
+    </view>
+  </view>
+
+  <button class="save-button" bindtap="updateConfig">保存配置</button>
+</view>
